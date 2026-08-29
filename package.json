@@ -1,7 +1,7 @@
 {
   "name": "dave-x",
   "version": "1.5.2",
-  "description": "DAVE-X launcher and multi-platform WhatsApp bot",
+  "description": "Dave x — Multi-platform WhatsApp Bot built on Baileys",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -9,18 +9,27 @@
     "start:low": "node --max-old-space-size=256 --optimize-for-size index.js",
     "start:mid": "node --max-old-space-size=512 index.js",
     "start:high": "node --max-old-space-size=1024 index.js",
-    "start:trace": "node --trace-warnings index.js",
-    "dev": "node --trace-warnings index.js",
     "panel": "npm install --legacy-peer-deps && node index.js",
+    "pm2": "pm2 start index.js --name DAVE-X --no-daemon",
+    "pm2:gc": "pm2 start index.js --name DAVE-X --node-args='--expose-gc' --no-daemon",
+    "pm2:stop": "pm2 stop DAVE-X",
+    "pm2:restart": "pm2 restart DAVE-X",
+    "pm2:logs": "pm2 logs DAVE-X",
     "install:deps": "npm install --legacy-peer-deps",
     "install:force": "npm install --force"
   },
-  "keywords": ["whatsapp-bot", "baileys", "dave-x", "davetech"],
+  "keywords": [
+    "whatsapp-bot",
+    "baileys",
+    "dave-x",
+    "davetech"
+  ],
   "author": "davetech-254",
   "license": "ISC",
   "engines": {
     "node": ">=20.19.0"
   },
+
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@whiskeysockets/baileys": "npm:davexbaileys@latest",
